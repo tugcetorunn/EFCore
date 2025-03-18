@@ -1,0 +1,9 @@
+﻿entity framework
+- data != object
+- orm tool ları bu eşitsizliği eşitliğe dönüştürmek için var. 
+- 2008, .net 3.5, c# 3.0 ile geldi. -> linq (1980?)
+- linq iki şekilde kullanılır -> expression tree, like sql
+- linq to object, linq to sql (ilk orm tool, sonra ef ye çevrildi), linq to xml
+
+- code first - db first, model first
+- baplantılı, bağlantısız yöntem
