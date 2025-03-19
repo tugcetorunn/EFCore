@@ -25,7 +25,7 @@ public partial class Product
 
     public bool Discontinued { get; set; }
 
-    public virtual Category? Category { get; set; } // virtual olması lazy loading old anlamına gelmez(eskiden öyleydi) ef core dan sonra üç koşul lazım virtual, gerekli kütüphane(proxy), gerekli ayar
+    public virtual Category? Category { get; set; } // virtual olması lazy loading old anlamına gelmez(eskiden öyleydi) ef core dan sonra üç koşul lazım virtual, gerekli kütüphane(proxies), gerekli ayar
 
-    public virtual Supplier? Supplier { get; set; } // ef core dan önce virtual ile lazy loading sıkıntılıydı microsoft kaldırdı. daha sonra koşullarla beraber tekrar getirdi. önceki versiyonda serileştirme hatası oluyor, sonsuz döngüye giriyor. serileştirmede veri getirir
+    public virtual Supplier? Supplier { get; set; } // ef core dan önce virtual ile lazy loading sıkıntılıydı microsoft kaldırdı. daha sonra koşullarla beraber tekrar getirdi. önceki versiyonda serileştirme hatası oluyor, sonsuz döngüye giriyor. serileştirmede service ile (örn json data oluşturulurken) veri getirilirken virtual ı gören derleyici ilişkili tabloya gidiyor, ordan tekrar virtual ı görüp diğer tabloya gidiyor ve döngüye giriyordu. bu ef core ile çözüldü.
 }

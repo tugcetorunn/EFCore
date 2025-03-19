@@ -30,7 +30,7 @@ var listele = context.Products.Select(x => x);
 //foreach (var product in listele)
 //    Console.WriteLine(product.ProductName + " - " + product.Category.CategoryName); // bu şekilde kullanabilmemiz için include metoduna np yi vermemiz gerek önce.
 
-var productWithCategories = context.Products.Include(x => x.Category);
+var productWithCategories = context.Products.Include(x => x.Category); // navigation prop ler ve include sayesinde uzun join sorguları yapmak zorunda kalmıyoruz.
 
 foreach (var product in productWithCategories)
 {
@@ -39,9 +39,10 @@ foreach (var product in productWithCategories)
 
 // ef core yükleme mekanizmaları - lazy loading, eager loading, explicit loading
 
-// index için primary key lazım
+// primary key tutulmazsa index olmaz
 // primary key yoksa foreign key yok fk yoksa ilişki yok ilişki yoksa - orphan records (öksüz yetim)
-// clustered index ler fiziksel olarak sıralı oluşur. metinsel primary keyler a dan z ye sıralanır. oluşturma maliyeti yüksektir. çünkü bu sıralamayı yapmak için öteleme-kaydırma yapması gerekiyor.
+
+// clustered index lerde fiziksel olarak sıralama yapılması gerekiyor. metinsel primary keyler a dan z ye sıralanır. bu nedenle indexleme maliyeti yüksektir. çünkü bu sıralamayı yapmak için öteleme-kaydırma yapması gerekiyor.
 
 // dbcc - id boşluklarını doldurma - tercih etmeyiz maliyetten dolayı id ileriye gitmeli, ikinci neden ilişkili tablolarda veri kaybı yaşatır.
 
