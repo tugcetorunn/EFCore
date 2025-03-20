@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 PersonelDbContext context = new PersonelDbContext();
 
+// migrate etmeden db nin mssql de oluşmasını sağlar.
 //context.Database.EnsureDeleted(); // önce siler sonra
 //context.Database.EnsureCreated(); // oluşturur
 

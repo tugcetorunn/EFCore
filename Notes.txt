@@ -1,0 +1,38 @@
+﻿önce gerekli kütüphaneleri yükle (efcore, sqlserver, design)
+connection string -> "Data source=.; initial catalog=Northwind; integrated security=true; trust server certificate=true"
+db first pmc komutu -> PM> Scaffold-DbContext "Data source=.; initial catalog=Northwind; integrated security=true; trust server certificate=true" Microsoft.EntityFrameworkCore.SqlServer -o Models -tables Products, Categories, Suppliers
+
+yardımcı tablo -> foreign keyi olmayan tablo
+
+PM> update-database mg1
+Build started...
+Build succeeded.
+Reverting migration '20250320114919_addedKagitCinsi'.
+Reverting migration '20250320112756_addedYayinevi'.
+Done.
+--> update-database mg1 ilk versiyona döner bundan sonraki güncellemeler geri alınır, migration silinmez.
+
+PM> update-database addedKagitCinsi
+Build started...
+Build succeeded.
+Reverting migration '20250320112756_addedYayinevi'.
+Done.
+
+PM> remove-migration
+Build started...
+Build succeeded.
+Removing migration '20250320114919_nullable'.
+Reverting the model snapshot.
+Done.
+--> bulunulan migration ı siler.
+
+PM> drop-database
+--> tüm db yi siler.
+
+db veri tipleri düzenleme yöntemleri (3)
+- data annotation (attribute, model karmaşık hale geldiği için eskide kalan bir yöntem)
+- fluent api
+- IConfiguration
+
+seperationOfConsern
+dry - 
